@@ -1,7 +1,5 @@
 # Web Development Exercise Collection
-A comprehensive collection of web development exercises demonstrating HTML, CSS, and JavaScript fundamentals through progressive implementations.<br>
-<br>
-（成大工資系｜網頁程式開發｜作業）
+A comprehensive collection of web development exercises demonstrating HTML, CSS, and JavaScript fundamentals through progressive implementations.
 
 ## Project Overview
 This collection consists of 11 exercises covering basic to advanced web development concepts, from simple HTML structures to interactive jQuery UI implementations.
