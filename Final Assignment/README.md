@@ -77,7 +77,7 @@ This project consists of multiple interactive web applications focused on health
 
 ## Project Structure
 ```
-project/
+Final Assignment/
 ├── BMI.html            # BMI calculator
 ├── DrinkWater.html     # Water intake calculator
 ├── FingerExercise.html # Exercise game
