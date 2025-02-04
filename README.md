@@ -1,151 +1,105 @@
-# Web Development Final Assignment Collection
+# Web Development Final Assignment
+A collection of web-based health and wellness tools implemented using HTML, JavaScript, and jQuery UI.
 
-An interactive web application featuring health calculators and mini-games implemented with HTML, JavaScript, and jQuery UI.<br>
-<br>
-（成大工資系｜網頁程式開發｜期末作業）
+## Project Overview
+This project consists of multiple interactive web applications focused on health monitoring and exercises, integrated into a single interface using jQuery UI tabs.
 
-## Project Components
-
-### BMI Calculator
-- Interactive BMI calculation with projected weight analysis
+## Components
+### BMI Calculator (BMI.html)
 - Features:
-  - Real-time BMI calculation
-  - Weight projection table (±5kg)
-  - Clickable results for detailed analysis
+  - Calculate BMI from height and weight inputs
+  - Display current BMI
+  - Show projected BMI table for weight variations
+  - Interactive table with weight adjustments ±5kg
+  - Reset functionality
 - Files:
   ```
-  Final/
-  ├── BMI.html           # BMI calculator implementation
+  BMI.html
   ```
 
-### Drink Water Calculator
-- Water intake recommendation system
+### Water Intake Calculator (DrinkWater.html)
 - Features:
-  - Calculates daily water intake based on height and weight
-  - Tracks current water consumption
-  - Provides hourly drinking recommendations
+  - Calculate daily water intake based on height and weight
+  - Track current water consumption
+  - Provide hourly drinking recommendations
+  - Reset functionality
 - Files:
   ```
-  Final/
-  ├── DrinkWater.html    # Water intake calculator
+  DrinkWater.html
   ```
 
-### Finger Exercise Game
-- Interactive clicking challenge game
+### Finger Exercise Game (FingerExercise.html)
 - Features:
-  - Customizable click target goals
+  - Interactive clicking exercise
+  - Customizable target click count
   - Progress tracking
-  - Reward video upon completion
-  - Adjustable difficulty settings
+  - Reward video on completion
+  - Reset functionality
 - Files:
   ```
-  Final/
-  ├── FingerExercise.html # Click challenge game
+  FingerExercise.html
   ```
 
-### Interactive Ball Animation
-- Canvas-based physics animation
+### Interactive Animation Game (game.html)
 - Features:
-  - Dynamic ball generation
-  - Gravity and collision physics
-  - Mouse interaction effects
-  - Continuous animation
+  - Canvas-based animation
+  - Mouse interaction with floating balls
+  - Dynamic ball physics
+  - Responsive design
 - Files:
   ```
-  Final/
-  ├── game.html          # Interactive animation
+  game.html
   ```
 
-### Main Interface
-- jQuery UI tabbed interface
+### Main Interface (FinalBase.html)
 - Features:
-  - Responsive layout
-  - Seamless navigation
-  - Integrated components
+  - jQuery UI tabs integration
+  - Responsive iframe layout
+  - Unified interface for all tools
 - Files:
   ```
-  Final/
-  ├── FinalBase.html     # Main application framework
+  FinalBase.html
   ```
 
-## Technical Requirements
+## Technical Implementation
+### Technologies Used
+- HTML5
+- JavaScript
+- jQuery
+- jQuery UI
+- Canvas API
 
-### Development Environment
-- Modern web browser (Chrome/Firefox recommended)
-- Local web server for testing
-- Text editor for code editing
-
-### Required Libraries
-- jQuery 1.10.2
+### Development Requirements
+- Modern web browser with JavaScript enabled
+- jQuery 1.10.2 or higher
 - jQuery UI 1.11.4
-- jQuery UI CSS theme (blitzer)
+- Internet connection for CDN resources
 
-## Implementation Notes
-
-### BMI Calculator
-- Dynamic table generation
-- Input validation
-- Real-time calculations
-- Responsive design
-
-### Drink Water Calculator
-- Formula: (height + weight) * 10
-- Input validation
-- Remaining intake calculation
-- Clear result presentation
-
-### Finger Exercise Game
-- Event listener implementation
-- Counter mechanism
-- Dynamic content update
-- YouTube video integration
-
-### Ball Animation
-- Canvas API usage
-- Physics calculations
-- Mouse tracking
-- Dynamic rendering
-
-## Directory Structure
+## Project Structure
 ```
-Final/
-├── BMI.html
-├── DrinkWater.html
-├── FingerExercise.html
-├── FinalBase.html
-├── game.html
+project/
+├── BMI.html            # BMI calculator
+├── DrinkWater.html     # Water intake calculator
+├── FingerExercise.html # Exercise game
+├── game.html          # Interactive animation
+├── FinalBase.html     # Main interface
 └── README.md
 ```
 
-## Features
-- Responsive design
-- Cross-browser compatibility
-- Interactive user interface
-- Real-time calculations
-- Engaging animations
-- Integrated health tools
-
-## Setup Instructions
-1. Ensure all files are in the same directory
-2. Open FinalBase.html in a modern web browser
-3. Navigate through tabs to access different components
-4. Each component can also be accessed individually
+## Usage Instructions
+1. Open FinalBase.html in a web browser
+2. Navigate between tools using the tab interface
+3. Each tool can be used independently within its tab
+4. Use reset buttons to clear inputs and start over
 
 ## Browser Compatibility
 - Chrome (recommended)
 - Firefox
-- Edge
 - Safari
-
-## Notes
-- Internet connection required for jQuery and UI resources
-- YouTube connectivity needed for game reward video
-- Local storage not implemented - data resets on page refresh
+- Edge
 
 ## Contributing
-
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
-
 This project is available for academic and educational purposes.
