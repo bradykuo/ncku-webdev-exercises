@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" /> 
+        <title>Final Test</title>
+	</head>
+    <style>
+        #brick{
+            height: 150px;
+            width: 150px;
+            background-color: firebrick;
+        }
+        p{
+            font-size: xx-large;
+        }
+    </style>    
+	<body> 
+        <form>
+            <div id="all">
+                <div id="brick"></div>
+                <p id="hit"></p>
+                <script>
+                    var preset = 10;
+                    var count = 0;
+                    var b = document.getElementById('brick');   
+                    b.addEventListener('click',function(){
+                        count += 1;
+                        document.getElementById('hit').innerText = count + " Hits";
+                        if(count == preset){
+                            document.getElementById('all').innerHTML = "<p>Congratulations! You are a true keyboard warrior!</p><br><br><iframe src='https://www.youtube.com/embed/uHKfrz65KSU' height='400' width='600'></iframe><br><br><input type='reset' value='Reset' onclick='document.location.reload(true)'>";
+                        }
+                    });
+                    
+                    var t = document.getElementById('preset');
+                    t.addEventListener('input', function(){
+                        preset = parseInt(t.value);
+                    });
+
+                </script>
+                Try a different standard of a true keyboard warrior: <input id='preset' type='number' min='1' value='10'>
+            </div>
+            
+        </form>
+    	
+	</body> 
+</html>

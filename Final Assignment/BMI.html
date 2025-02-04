@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" /> 
+    <title>Final Test</title>
+    <style>
+        table {
+            border-style: double;
+            float: right;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body> 
+    <div>
+        Weight: <input id="Weight"><br><br>
+        Height: <input id="Height"><br><br>
+        <button type="button" onclick="cal()">Calculate</button><br><br>
+        <p>Your BMI is: <span id="bmi" style="cursor: pointer; text-decoration: underline;" onclick="displayProjectedBMI()"></span></p><br><br>
+        <script>
+            function cal() {
+                var w = document.getElementById('Weight').value;
+                var h = document.getElementById('Height').value;
+                var he = parseFloat(h, 10);
+                var w2 = parseFloat(w, 10);
+                if (he > 10) {
+                    he = he / 100;
+                }
+                var bmi = w2 / (he * he);
+                var bmiSpan = document.getElementById('bmi');
+                bmiSpan.innerHTML = bmi.toFixed(2);
+                bmiSpan.style.display = 'inline-block';
+                
+                var weightData = document.getElementById('weightData');
+                var bmiData = document.getElementById('bmiData');
+                weightData.innerHTML = w;
+                bmiData.innerHTML = bmi.toFixed(2);
+                
+                displayProjectedBMI(); // Display projected BMI table after calculating current BMI
+            }
+            
+            function displayProjectedBMI() {
+                var weight = parseFloat(document.getElementById('Weight').value, 10);
+                var bmi = parseFloat(document.getElementById('bmi').innerHTML);
+                var he = parseFloat(document.getElementById('Height').value, 10);
+                var tableBody = document.getElementById('projectedTableBody');
+                tableBody.innerHTML = ''; // Clear previous table data
+                
+                for (var i = weight - 5; i <= weight + 5; i++) {
+                    var projectedWeight = i;
+                    var projectedBMI = (projectedWeight / (he * he)).toFixed(2);
+                    
+                    var row = document.createElement('tr');
+                    var weightCell = document.createElement('td');
+                    var bmiCell = document.createElement('td');
+                    
+                    weightCell.textContent = projectedWeight;
+                    bmiCell.textContent = projectedBMI;
+                    
+                    row.appendChild(weightCell);
+                    row.appendChild(bmiCell);
+                    
+                    tableBody.appendChild(row);
+                }
+            }
+        </script>
+        <button type="reset" onclick="document.location.reload(true)">Reset</button><br><br>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Weight</th>
+                <th>BMI</th>
+            </tr>
+        </thead>
+        <tbody id="projectedTableBody"></tbody>
+    </table>
+</body> 
+</html>

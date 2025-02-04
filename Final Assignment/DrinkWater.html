@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" /> 
+        <title>Final Test</title>
+	</head>
+	<body> 
+        <div>
+            Weight: <input id="Weight"><br><br>
+            Height: <input id="Height"><br><br>
+            You have drunk <input id="water"> c.c. today.<br><br>
+            <button onclick="cal()">Calculate</button><br><br>
+            <script>
+                function cal() {
+                    var w = document.getElementById('Weight');
+                    var h = document.getElementById('Height');
+                    var he = parseFloat(h.value, 10);
+                    var w2 = parseFloat(w.value, 10);
+                    var dMinus = 0;
+
+                    if (he < 10) {
+                        he = he * 100;
+                    }
+
+                    var water = document.getElementById('water');
+                    if (water.value) {
+                        dMinus = parseFloat(water.value, 10);
+                    }
+
+                    var d1 = (he + w2) * 10;
+                    var d2 = (he + w2) * 10 - dMinus;
+                    document.getElementById('drink').innerHTML = "You need to drink " + d1 + " c.c. of water";
+                    document.getElementById('bed').innerHTML = "Before you go to bed, please drink approximately " + d2 + " c.c. each hour";
+                }
+            </script>
+            <p id="drink"></p>
+            <p id="bed"></p><br><br>
+            <button onclick="document.location.reload(true)">Reset</button><br><br>
+        </div>
+	</body> 
+</html>
