@@ -5,9 +5,9 @@ A comprehensive web development course repository containing progressive learnin
 
 ## Repository Structure
 ```
-Repository/
-├── Exercises/          # Progressive learning exercises
-├── Final-Assignment/   # Health and wellness web applications
+ncku-webdev-exercises/
+├── Exercise/          # Progressive learning exercises
+├── Final Assignment/   # Health and wellness web applications
 └── README.md
 ```
 
