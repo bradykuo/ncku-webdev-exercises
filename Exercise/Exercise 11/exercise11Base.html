@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" /> 
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/blitzer/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<style>
+			iframe {
+				height: 1200px;
+				width: 1000px;
+			}
+		</style>
+	</head>
+	<body> 
+		<div id="tab">
+			<ul>
+				<li><a href="#exercise1">Exercise 1</a></li>
+				<li><a href="#exercise2">Exercise 2</a></li>
+				<li><a href="#exercise3">Exercise 3</a></li>
+				<li><a href="#exercise11">Exercise 11</a></li>
+			</ul>
+			<div id="exercise1"><iframe src="Exercise1.html"></iframe></div>
+			<div id="exercise2"><iframe src="Exercise2/Exercise2.html"></iframe></div>
+			<div id="exercise3"><iframe src="Exercise3.html"></iframe></div>
+			<div id="exercise11"><iframe src="Exercise11.html"></iframe></div>
+		</div>
+		<script>
+			$('#tab').tabs();
+		</script>
+	</body>
+</html>

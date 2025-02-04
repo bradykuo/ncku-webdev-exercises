@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+	//$(document).ready(function() 
+	$(function() {
+		// Remove the youtube embedded and media player.
+		$("iframe").remove();
+		$("audio").remove();
+		//$("iframe[src='https://www.youtube.com/embed/6V7oVQ05oSA']").remove();
+		//$("audio[src='./Media/Lucid_Dreamer.mp3']").remove();
+
+		// Append "(Acquired by Facebook)" after each Facebook acquired company.
+		// Add the hyperlink (https://www.google.com/) to each Facebook acquired company.
+		$("ol > li").each(function(index){
+			$(this).append(" (Acquired by Facebook)").wrap("<a href='https://www.google.com/'></a>");
+		});
+		//$("li:contains('Instagram')").append(" (Acquired by Facebook)");
+		// $("li:contains('WhatsApp')").append(" (Acquired by Facebook)");
+		// $("li:contains('Oculus VR')").append(" (Acquired by Facebook)");
+
+		// $("li:contains('Instagram')").wrap("<a href='https://www.google.com/'></a>");
+		// $("li:contains('WhatsApp')").wrap("<a href='https://www.google.com/'></a>");
+		// $("li:contains('Oculus VR')").wrap("<a href='https://www.google.com/'></a>");
+
+		// Change the border style of each <th> element to 1px dashed.
+		$("th").css("border", "1px dashed");
+
+		// Make the logo disappear when hovering over it.
+		$("#logo1").mouseenter(function() {
+			$("#logo2").hide();
+		}).mouseleave(function() {
+			$("#logo2").show();
+		});
+
+		// Add background color "lightblue" to each "1" in the table.
+		$("td:contains('1'),th:contains('1')").css("background-color", "lightblue");
+		//$("th:contains('1')").css("background-color", "lightblue");
+
+		$("#contact1").hide();
+        // Increase and decrease the size of the logo after clicking it
+        $("#logo1").click(function() {
+            var logo = $(this);
+            var originalWidth = logo.width();
+            var originalHeight = logo.height();
+
+            logo.animate({
+                height: "600px"
+            }, "slow")
+            .animate({
+                width: "600px"
+            }, "slow")
+            .animate({
+                height: originalHeight
+            }, "slow")
+            .animate({
+                width: originalWidth
+            }, "slow");
+
+            // Swap the position of "Email me" and "Contact NCKU"
+			$("#contact1,#contact2").toggle();
+        });
+
+	});
+</script>
+<html>
+	<head>
+		<meta charset="utf-8" /> 
+	</head>
+	<body> 
+    	<img id="logo1" src="./Media/ncku-logo1.jpg" alt="哈哈哈" width="200" height="200">
+		<a href="https://web.ncku.edu.tw">
+		<img id="logo2" src="https://web.ncku.edu.tw/var/file/0/1000/img/1215/ncku-logo2.jpg" alt="哈哈哈" width="200" height="200" >
+		</a>
+		<br></br>
+		<audio src="./Media/Lucid_Dreamer.mp3" autoplay muted controls></audio>
+		<!--embed name="GoodEnough" src="./Media/Lucid_Dreamer.mp3" loop="false" hidden="true" autostart="true" muted controls-->
+		<br></br>
+		<iframe width="640" height="360" src="https://www.youtube.com/embed/6V7oVQ05oSA" title="Audio Library 音樂庫 免費背景音樂下載 歌名: Lovable Clown Sit Com 作者: Sir Cubworth | Happy Music 開心音樂 | NCS Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+		<a id="contact1" href="tel:(06) 275-7575">Contact NCKU</a> 
+		<br></br>
+		<a id="email" href="mailto:h34091071@gs.ncku.edu.tw">Email me</a>
+		<br></br>
+		<a id="contact2" href="tel:(06) 275-7575">Contact NCKU</a> 
+		<h3>My favorite sites:</h3>
+		<ul>
+			<li>Youtube</li>
+			<li>Wikipedia</li>
+			<li>Amazon</li>
+			<li>Facebook</li>
+				<ol type="A">
+					<li>Instagram</li>
+					<li>WhatsApp</li>
+					<li>Oculus VR</li>
+				</ol>
+		</ul>
+		<table border="1">
+		<caption><b>Fruit Juice Drinks and Meals</b></caption>
+			<tr><!--列-->
+				<td colspan="2" rowspan="2"> <th colspan="3" align="center"><b>Fruit Juice Drinks</b><!--行-->
+			<tr>
+				<th><b>Apple</b></th><th><b>Orange</b></th><th><b>Screwdriver</b></th>
+			<tr>
+				<th rowspan="3" align="top"><b>Meal</b></th><td>Breakfast</td><td>0</td><td>1</td><td>0</td>
+			<tr>
+				<td align="center">Lunch</td><td>1</td><td>0</td><td>0</td>
+			<tr>
+				<td align="center">Dinner</td><td>0</td><td>0</td><td>1</td>
+			<tr>
+				<th colspan="2" align="center"><b>Total</b></th><td>1</td><td>1</td><td>1</td>
+		</table>
+	</body>
+</html>
+

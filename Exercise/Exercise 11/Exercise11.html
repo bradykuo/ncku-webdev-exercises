@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" /> 
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/blitzer/jquery-ui.css">
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<style>
+			#menu{
+				width: 200px;
+			}
+			#prog{
+				width: 300px;
+			}
+			#odd-slider {
+				width: 500px;
+			}
+			
+		</style>
+	</head>
+	<body> 
+		<ul id="menu">
+			<li>My favorite sites:
+				<ul>
+					<li>Youtube</li>
+					<li>Wikipedia</li>
+					<li>Amazon</li>
+					<li>Facebook
+						<ul>
+							<li>Instagram</li>
+							<li>WhatsApp</li>
+							<li>Oculus VR</li>
+						</ul>
+					</li>
+				</ul>
+				</li>
+		</ul>
+		<br>
+		<input id="date">
+		<br>
+		<div>你今天已經過了<span id="percent"></span>%</div>
+		<div id="prog"></div>
+		<br>
+		<div id="num"></div>
+		<div id="odd-slider"></div>
+		<br>
+		<button id="feelingLuckyBtn">Feeling Lucky</button>
+
+		<div id="dialog" title="Feeling Lucky">
+			<p id="result"></p>
+		</div>
+		<script>
+			$('#menu').menu();
+			$('#date').datepicker({
+				dateFormat: "yy-mm-dd (D)"
+			});
+
+			var today = new Date();
+			var totalMilliseconds = 24 * 60 * 60 * 1000; // Total milliseconds in a day
+			var millisecondsPassed = today.getHours() * 60 * 60 * 1000 + today.getMinutes() * 60 * 1000 + today.getSeconds() * 1000 + today.getMilliseconds();
+			var progress = (millisecondsPassed / totalMilliseconds) * 100;
+
+			$('#prog').progressbar({
+				value: progress,
+				max: 100
+			});
+			$('#percent').text(progress.toFixed(2));
+			$("#num").text("1");
+			$("#odd-slider").slider({
+				min: 1,
+				max: 99,
+				step: 2,
+				change: onchange,
+				defaultValue: 1,
+				slide: function(event, ui) {
+				$("#num").text(ui.value);
+				}
+			});
+			$("#feelingLuckyBtn").on("click", function() {
+				var randomNumber = Math.random();
+				var result;
+
+				if (randomNumber < 0.1) {
+					result = "Very Lucky!";
+				} else if (randomNumber < 0.9) {
+					result = "Average";
+				} else {
+					result = "Unlucky...";
+				}
+
+				$("#result").text(result);
+				$("#dialog").dialog("open");
+			});
+
+			$("#dialog").dialog({
+				autoOpen: false,
+				modal: true,
+				buttons: {
+					OK: function() {
+						$(this).dialog("close");
+						$("#result").text("");
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

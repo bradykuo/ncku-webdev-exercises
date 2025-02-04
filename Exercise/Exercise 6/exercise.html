@@ -1,0 +1,67 @@
+<html>	
+	<style>
+		button{
+			width:180px;
+			height:60px;
+			background-color:lightblue;
+			border:0;
+		}
+		button:hover{
+			background-color:blue;
+			color:white;
+		}
+		button:hover ~ img {
+			animation-direction: reverse;
+		}
+		div{
+			width:600px;
+			height:400px;
+			position: absolute;
+  			left: 50px;
+			border-style:outset;
+		}
+		img{
+			position: relative;
+			animation: squarecircle linear 10s infinite;
+		}
+		@keyframes squarecircle {
+			0% { left:0px; top:0px;}
+			25% { left:650px; top:0px;}
+			50% { left: 650px; top:460px;}
+			75% { left: 0px; top:460px;}
+			100% { left:0px; top:0px;}
+		} 
+	</style>
+	<script>
+		function get_Name(){
+			var myDiv = document.getElementById("myDiv");
+			var name = window.prompt("Enter my name");
+			if(name!=null && name!="") {
+				myDiv.innerHTML += "Howdy! " + name;
+			} 
+		}
+		function change_Speed(){
+			var speed = document.getElementById("logo");
+			speed.style.animation = "squarecircle linear 1s infinite";
+    		}
+		function change_Pic(){
+			var myImage = document.querySelector('img');
+			let mySrc = myImage.getAttribute('src');
+			if(mySrc == "./Media/ncku-logo1.jpg") {
+      			myImage.setAttribute ('src','./Media/ncku-logo2.jpg');
+			} 
+			else {
+      			myImage.setAttribute ('src','./Media/ncku-logo1.jpg');
+    		}
+		}
+	</script>
+
+	<body>
+		<button id="button1" onclick="get_Name()">Ask My Name</button>
+		<button id="button2" onclick="change_Speed()">Run Faster!</button>
+		<button id="button3" onclick="change_Pic()">Another Logo</button>
+		<br>
+		<img id="logo" src="./Media/ncku-logo1.jpg" width="50px" heigh="50px" alt="LOGO">
+		<div id="myDiv"></div>
+	</body>
+</html>

@@ -1,0 +1,111 @@
+<html>	
+	<style>
+
+	</style>
+	<script src="./Baby_name.js"></script>
+	<script>
+		function updateTime() {
+			// Get the current time
+			const now = new Date();
+			
+			// Format the time using the user's locale
+			const timeOptions = {
+				hour12: true,
+				hour: 'numeric',
+				minute: 'numeric',
+				second: 'numeric',
+				year: 'numeric',
+				month: '2-digit',
+				day: '2-digit'
+			};
+			const time = now.toLocaleString('zh-TW', timeOptions);
+			
+			// Update the #time element
+			const timeElement = document.getElementById('time');
+			timeElement.textContent = time;
+		}
+		function list(){
+			updateTime();
+			var n = document.getElementById("n");
+			arr = Baby_Name_List.split(",");
+			for (i=1;i<=arr.length;i++){
+				n.innerHTML += "<option>"+ i + "." + arr[i-1] + "</option>";
+			}
+		}
+		function show(){
+			updateTime();
+			var tds = document.getElementsByTagName("table");
+			for (var i = 0; i < tds.length; i++) {
+				tds[i].innerHTML = "";
+			}
+			var S = new String("");
+			var p = document.getElementById("p");
+			cnt=0;
+			for(i=1;cnt<arr.length;i++){
+				j=0;
+				S +="<tr>";
+				while(j<i){
+					S += '<td id= "' +(cnt+1)+'.'+ arr[cnt] +'">'+arr[cnt]+'</td>';
+					cnt++;
+					j++;
+				}
+				S += "</tr>";
+			}   
+			p.innerHTML += S;
+			const selectElement = document.querySelector('#n');
+			const selectedValue = selectElement.value;
+			var name = document.getElementById(selectedValue);
+			name.style.backgroundColor = "lightblue";
+		}
+		function ran(){
+			updateTime();
+			var tds = document.getElementsByTagName("table");
+			for (var i = 0; i < tds.length; i++) {
+				tds[i].innerHTML = "";
+			}
+			arr = Baby_Name_List.split(",");
+			var S = new String("");
+			var p = document.getElementById("p");
+			cnt=0;
+			for(i=1;cnt<arr.length;i++){
+				j=0;
+				S +="<tr>";
+				while(j<i){
+					S += '<td id= "' +(cnt+1)+'.'+ arr[cnt] +'">'+arr[cnt]+'</td>';
+					cnt++;
+					j++;
+				}
+				S += "</tr>";
+			}   
+			p.innerHTML += S;
+			var randomInt = Math.floor(Math.random() * arr.length)+1;
+			R = new String("");
+			R += randomInt+'.'+arr[randomInt-1];
+			var name = document.getElementById(R);
+			name.style.backgroundColor = "lightpink";
+		}
+		function disco(){
+			updateTime();
+			var element = document.getElementById("d");
+			var myIntervalㄤ
+			if(element.textContent == "Let’s Disco!") {
+				element.textContent = "Stop the music!";
+				myInterval = setInterval(ran, 1000);
+			} 
+			else if (element.textContent == "Stop the music!") {
+				element.textContent = "Let’s Disco!";
+				clearInterval(myInterval);
+			}
+		}
+	</script>
+	<body onload="list()">
+		<select id="n" >
+			
+		</select>
+		<button onclick="show()">Select</button>
+		<button onclick="ran()">I feel lucky!</button>
+		<button id="d" onclick="disco()">Let’s Disco!</button>
+		<p id="time"></p>
+		<table id="p"></table>
+	</body>
+</html>
